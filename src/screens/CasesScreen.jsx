@@ -77,6 +77,11 @@ function CasesScreen({
                     </span>
                   ))}
                 </div>
+                {item.background && (
+                  <p className="mt-3 line-clamp-2 text-xs leading-relaxed" style={{ color: "var(--text-muted)" }}>
+                    {item.background}
+                  </p>
+                )}
                 <button
                   onClick={() => setActiveCase(item)}
                   className="mt-4 rounded-lg bg-teal-600 px-3 py-1.5 text-sm font-medium transition hover:bg-teal-500"
