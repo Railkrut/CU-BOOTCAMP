@@ -9,5 +9,5 @@ export default defineConfig({
     cors: true,
     strictPort: true,
   },
-  base: '/app/',
+  base: './',
 });
