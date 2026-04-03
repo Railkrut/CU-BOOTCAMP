@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cc0023e-5d6e-4553-8d0c-2caa922dc174" name="Changes" comment="ir" />
+    <list default="true" id="5cc0023e-5d6e-4553-8d0c-2caa922dc174" name="Changes" comment="ir">
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vite.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/vite.config.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +57,7 @@
       <option name="presentableId" value="Default" />
       <updated>1775212836933</updated>
       <workItem from="1775212838095" duration="11225000" />
-      <workItem from="1775232059054" duration="6171000" />
+      <workItem from="1775232059054" duration="7526000" />
     </task>
     <task id="LOCAL-00001" summary="ir">
       <option name="closed" value="true" />
