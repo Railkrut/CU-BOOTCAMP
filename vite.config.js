@@ -8,5 +8,6 @@ export default defineConfig({
     open: true,
     cors: true,
     strictPort: true,
-  }
+  },
+  base: '/app/',
 });
