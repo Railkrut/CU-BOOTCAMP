@@ -4,27 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5cc0023e-5d6e-4553-8d0c-2caa922dc174" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/.env.example" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/FRONTEND_API_GUIDE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/data/cases.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/data/risk_patterns.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/data/state/progress.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/data/state/sessions.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/main.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/requirements.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/schemas.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/services.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/tests/test_api.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/BootCamp_CU/yandex_api_tes.py" beforeDir="false" />
-    </list>
+    <list default="true" id="5cc0023e-5d6e-4553-8d0c-2caa922dc174" name="Changes" comment="ir" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/BootCamp_CU" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 8
@@ -64,11 +51,24 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1775212836933</updated>
-      <workItem from="1775212838095" duration="8512000" />
+      <workItem from="1775212838095" duration="9807000" />
     </task>
+    <task id="LOCAL-00001" summary="ir">
+      <option name="closed" value="true" />
+      <created>1775230410196</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1775230410196</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="ir" />
+    <option name="LAST_COMMIT_MESSAGE" value="ir" />
   </component>
 </project>
