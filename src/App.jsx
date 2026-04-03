@@ -323,7 +323,7 @@ function App() {
                   className={`flex w-full items-center gap-3 rounded-xl px-3 py-2 text-left text-sm transition ${
                     active
                       ? "text-white shadow-lg"
-                      : "hover:bg-slate-200/80 dark:hover:bg-white/5"
+                      : "hover:bg-brand-500/10"
                   }`}
                   style={
                     active

@@ -108,7 +108,7 @@ function CasesScreen({
                   <span
                     key={tag}
                     className="rounded-full border px-2 py-0.5 text-xs"
-                    style={{ borderColor: "rgba(249,115,22,0.35)", color: "var(--brand-500)", background: "rgba(249,115,22,0.08)" }}
+                    style={{ borderColor: "var(--brand-500)", color: "var(--brand-500)", background: "var(--bg-card)", opacity: 0.8 }}
                   >
                     {tag}
                   </span>
@@ -180,32 +180,34 @@ function CasesScreen({
             onChange={(e) => setCaseAnswer(e.target.value)}
             placeholder="Напишите структурированное решение: проблема, гипотеза, решение, метрики, план на 2-4 недели..."
             rows={12}
-            className="w-full rounded-xl border border-white/10 bg-slate-800/70 px-4 py-3 text-sm outline-none ring-violet-400/40 placeholder:text-slate-400 focus:ring-2"
+            className="w-full rounded-xl border px-4 py-3 text-sm outline-none ring-brand-500/40 focus:ring-2"
+            style={{ background: "var(--bg-input)", borderColor: "var(--border-color)", color: "var(--text-main)" }}
           />
 
           <button
             onClick={submitCase}
             disabled={isEvaluating}
-            className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-violet-600 to-indigo-600 px-4 py-2 text-sm font-medium transition enabled:hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
+            className="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium text-white transition enabled:hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-70"
+            style={{ background: "linear-gradient(135deg, var(--brand-500), var(--brand-600))" }}
           >
             {isEvaluating ? <LoaderCircle className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
             Отправить на оценку AI
           </button>
 
           {feedbackVisible && (
-            <div className="rounded-xl border border-violet-300/30 bg-violet-500/10 p-4">
+            <div className="rounded-xl border p-4" style={{ borderColor: "var(--border-color)", background: "var(--bg-secondary)" }}>
               <h4 className="mb-3 text-base font-semibold">AI-анализ в сравнении с эталоном</h4>
               {lastEvaluation?.score != null && (
-                <p className="mb-2 text-lg font-bold text-emerald-200">Оценка: {lastEvaluation.score}</p>
+                <p className="mb-2 text-lg font-bold" style={{ color: "var(--brand-500)" }}>Оценка: {lastEvaluation.score}</p>
               )}
               {lastEvaluation?.summary ? (
-                <p className="mb-3 text-sm leading-relaxed text-slate-200">{lastEvaluation.summary}</p>
+                <p className="mb-3 text-sm leading-relaxed" style={{ color: "var(--text-main)" }}>{lastEvaluation.summary}</p>
               ) : null}
               {lastEvaluation?.criteria_scores?.length > 0 && (
-                <div className="mb-4 overflow-x-auto rounded-lg border border-white/10 bg-slate-900/40">
+                <div className="mb-4 overflow-x-auto rounded-lg border" style={{ borderColor: "var(--border-color)", background: "var(--bg-card)" }}>
                   <table className="w-full text-left text-xs">
                     <thead>
-                      <tr className="border-b border-white/10 text-slate-400">
+                      <tr className="border-b" style={{ borderColor: "var(--border-color)", color: "var(--text-muted)" }}>
                         <th className="px-2 py-1">Критерий</th>
                         <th className="px-2 py-1">Балл</th>
                         <th className="px-2 py-1">Комментарий</th>
@@ -213,26 +215,26 @@ function CasesScreen({
                     </thead>
                     <tbody>
                       {lastEvaluation.criteria_scores.map((row) => (
-                        <tr key={row.name} className="border-b border-white/5">
-                          <td className="px-2 py-1 font-mono text-slate-300">{row.name}</td>
-                          <td className="px-2 py-1">{row.score}</td>
-                          <td className="px-2 py-1 text-slate-400">{row.rationale ?? "—"}</td>
+                        <tr key={row.name} className="border-b" style={{ borderColor: "var(--border-color)" }}>
+                          <td className="px-2 py-1 font-mono" style={{ color: "var(--text-main)" }}>{row.name}</td>
+                          <td className="px-2 py-1" style={{ color: "var(--text-main)" }}>{row.score}</td>
+                          <td className="px-2 py-1" style={{ color: "var(--text-muted)" }}>{row.rationale ?? "—"}</td>
                         </tr>
                       ))}
                     </tbody>
                   </table>
                 </div>
               )}
-              <FeedbackList title="Сильные стороны" points={caseFeedback.strengths} tone="text-emerald-200" />
+              <FeedbackList title="Сильные стороны" points={caseFeedback.strengths} tone="text-emerald-600 dark:text-emerald-200" />
               <FeedbackList
                 title="Слабые места и риски"
                 points={caseFeedback.weaknesses}
-                tone="text-amber-100"
+                tone="text-amber-600 dark:text-amber-100"
               />
-              <FeedbackList title="Инновационные идеи" points={caseFeedback.innovative} tone="text-cyan-100" />
+              <FeedbackList title="Инновационные идеи" points={caseFeedback.innovative} tone="text-cyan-600 dark:text-cyan-100" />
 
-              <div className="mt-4 space-y-2 rounded-lg border border-white/10 bg-slate-900/40 p-3">
-                <p className="text-xs uppercase tracking-wide text-slate-400">
+              <div className="mt-4 space-y-2 rounded-lg border p-3" style={{ borderColor: "var(--border-color)", background: "var(--bg-card)" }}>
+                <p className="text-xs uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>
                   Follow-up после оценки
                 </p>
                 <div className="flex gap-2">
@@ -240,12 +242,14 @@ function CasesScreen({
                     value={followupInput}
                     onChange={(e) => setFollowupInput(e.target.value)}
                     placeholder="Например: какой эксперимент провести первым?"
-                    className="flex-1 rounded-lg border border-white/10 bg-slate-800 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-violet-400/40"
+                    className="flex-1 rounded-lg border px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-brand-500/40"
+                    style={{ background: "var(--bg-input)", borderColor: "var(--border-color)", color: "var(--text-main)" }}
                   />
                   <button
                     onClick={sendCaseFollowup}
                     disabled={isFollowupLoading}
-                    className="rounded-lg bg-indigo-600 px-3 py-2 text-sm font-medium text-white disabled:opacity-60"
+                    className="rounded-lg px-3 py-2 text-sm font-medium text-white disabled:opacity-60"
+                    style={{ background: "var(--brand-500)" }}
                   >
                     {isFollowupLoading ? "Отправка..." : "Спросить"}
                   </button>
@@ -253,16 +257,16 @@ function CasesScreen({
               </div>
 
               {caseMessages?.length > 0 && (
-                <div className="mt-4 rounded-lg border border-white/10 bg-slate-900/40 p-3">
-                  <p className="mb-2 text-xs uppercase tracking-wide text-slate-400">История сессии обучения</p>
+                <div className="mt-4 rounded-lg border p-3" style={{ borderColor: "var(--border-color)", background: "var(--bg-card)" }}>
+                  <p className="mb-2 text-xs uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>История сессии обучения</p>
                   <div className="max-h-44 space-y-2 overflow-y-auto">
                     {caseMessages.map((msg, idx) => (
                       <div
                         key={`${msg.role}-${idx}`}
                         className={`rounded-lg px-3 py-2 text-sm ${
                           msg.role === "user"
-                            ? "bg-indigo-500/20 text-indigo-100"
-                            : "bg-teal-500/15 text-teal-100"
+                            ? "bg-indigo-500/10 text-indigo-700 dark:bg-indigo-500/20 dark:text-indigo-100"
+                            : "bg-teal-500/10 text-teal-700 dark:bg-teal-500/15 dark:text-teal-100"
                         }`}
                       >
                         {msg.content}

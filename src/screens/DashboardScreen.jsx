@@ -21,7 +21,7 @@ function DashboardScreen({
             Платформа для школьников и студентов: учитесь запускать идеи через кейсы и симуляции.
           </p>
         </div>
-        <div className="inline-flex items-center gap-2 rounded-xl border px-3 py-2" style={{ borderColor: "rgba(249,115,22,0.35)", background: "rgba(249,115,22,0.12)" }}>
+        <div className="inline-flex items-center gap-2 rounded-xl border px-3 py-2" style={{ borderColor: "var(--brand-500)", opacity: 0.85, background: "var(--bg-card)" }}>
           <Flame className="h-5 w-5" style={{ color: "var(--brand-500)" }} />
           <span className="text-sm font-medium">Серия: {streak} дней</span>
         </div>
@@ -88,7 +88,7 @@ function DashboardScreen({
             <p className="mb-2 text-xs uppercase tracking-wide" style={{ color: "var(--text-muted)" }}>Воронка продукта</p>
             <div className="flex flex-wrap gap-2">
               {funnelStages.map((stage) => (
-                <span key={stage} className="rounded-full border px-3 py-1 text-xs" style={{ borderColor: "rgba(249,115,22,0.35)", color: "var(--brand-500)", background: "rgba(249,115,22,0.08)" }}>
+                <span key={stage} className="rounded-full border px-3 py-1 text-xs" style={{ borderColor: "var(--brand-500)", color: "var(--brand-500)", background: "var(--bg-card)", opacity: 0.8 }}>
                   {stage}
                 </span>
               ))}

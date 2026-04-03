@@ -65,8 +65,9 @@ function ProfileScreen({ stats, badges, currentUser, casesProgress, onResetTestP
                 <div
                   key={day}
                   className={`flex h-10 items-center justify-center rounded-lg text-xs ${
-                    done ? "bg-teal-500/60 text-white" : "bg-slate-800 text-slate-400"
+                    done ? "bg-brand-500/60 text-white" : ""
                   }`}
+                  style={!done ? { background: "var(--bg-secondary)", color: "var(--text-muted)" } : {}}
                 >
                   {day}
                 </div>
