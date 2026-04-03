@@ -1,4 +1,4 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL || "http://localhost:8000";
+const API_BASE = "https://testa1000-7-back-cu.hf.space/import.meta.env.VITE_API_BASE_URL" || "http://localhost:8000";
 
 export class ApiError extends Error {
   constructor(status, message) {
