@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5cc0023e-5d6e-4553-8d0c-2caa922dc174" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/.env.example" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/FRONTEND_API_GUIDE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/data/cases.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/data/risk_patterns.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/data/state/progress.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/data/state/sessions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/requirements.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/schemas.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/services.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/tests/test_api.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BootCamp_CU/yandex_api_tes.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/BootCamp_CU" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="3BqNrCEMAt7lu0uD70EbYRjueWt" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "last_opened_file_path": "D:/Projects/BOOTCAMP-CU-CASE",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "D:\\WebStorm\\WebStorm 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-WS-251.23774.424" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5cc0023e-5d6e-4553-8d0c-2caa922dc174" name="Changes" comment="" />
+      <created>1775212836933</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1775212836933</updated>
+      <workItem from="1775212838095" duration="8512000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
