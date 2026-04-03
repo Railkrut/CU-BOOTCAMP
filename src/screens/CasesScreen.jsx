@@ -42,7 +42,7 @@ function CasesScreen({
             Не решено: <strong>{casesProgress.unsolved_count ?? 0}</strong>
           </span>
           <span className="text-xs" style={{ color: "var(--text-muted)" }}>
-            (данные /test/cases/progress, до рестарта бэкенда)
+            (данные системы, до сброса прогресса)
           </span>
         </div>
       )}
@@ -189,7 +189,7 @@ function CasesScreen({
 
           {feedbackVisible && (
             <div className="rounded-xl border border-violet-300/30 bg-violet-500/10 p-4">
-              <h4 className="mb-3 text-base font-semibold">AI-анализ в сравнении с бенчмарком</h4>
+              <h4 className="mb-3 text-base font-semibold">AI-анализ в сравнении с эталоном</h4>
               {lastEvaluation?.score != null && (
                 <p className="mb-2 text-lg font-bold text-emerald-200">Оценка: {lastEvaluation.score}</p>
               )}
@@ -220,7 +220,7 @@ function CasesScreen({
               )}
               <FeedbackList title="Сильные стороны" points={caseFeedback.strengths} tone="text-emerald-200" />
               <FeedbackList
-                title="Слабые места / Узкие места"
+                title="Слабые места и риски"
                 points={caseFeedback.weaknesses}
                 tone="text-amber-100"
               />
@@ -249,7 +249,7 @@ function CasesScreen({
 
               {caseMessages?.length > 0 && (
                 <div className="mt-4 rounded-lg border border-white/10 bg-slate-900/40 p-3">
-                  <p className="mb-2 text-xs uppercase tracking-wide text-slate-400">История test-сессии</p>
+                  <p className="mb-2 text-xs uppercase tracking-wide text-slate-400">История сессии обучения</p>
                   <div className="max-h-44 space-y-2 overflow-y-auto">
                     {caseMessages.map((msg, idx) => (
                       <div

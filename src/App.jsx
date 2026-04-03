@@ -127,7 +127,7 @@ function App() {
         const health = await testApi.health();
         setApiMode(health.mode ?? null);
         if (health.status !== "ok" || !health.ready) {
-          setApiError(health.error || "Бэкенд не готов к обработке test-запросов.");
+          setApiError(health.error || "Бэкенд не готов к обработке тестовых запросов.");
           return;
         }
 
@@ -309,7 +309,7 @@ function App() {
               <Sparkles className="h-5 w-5" />
             </div>
             <div>
-              <h1 className="font-display text-sm font-semibold">Кейс Ап</h1>
+              <h1 className="font-display text-sm font-semibold">Кейс CU</h1>
             </div>
           </div>
           <nav className="space-y-1">

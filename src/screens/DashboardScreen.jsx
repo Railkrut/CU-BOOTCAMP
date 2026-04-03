@@ -16,7 +16,7 @@ function DashboardScreen({
     <div className="space-y-4">
       <Surface className="flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
         <div>
-          <h2 className="font-display text-2xl font-semibold">Кейс Ап</h2>
+          <h2 className="font-display text-2xl font-semibold">Кейс CU</h2>
           <p className="text-sm" style={{ color: "var(--text-muted)" }}>
             Платформа для школьников и студентов: учитесь запускать идеи через кейсы и симуляции.
           </p>

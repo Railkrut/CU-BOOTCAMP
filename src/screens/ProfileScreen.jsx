@@ -14,9 +14,9 @@ function ProfileScreen({ stats, badges, currentUser, casesProgress, onResetTestP
 
       {casesProgress && (
         <Surface>
-          <h3 className="mb-2 text-lg font-semibold">Прогресс /test (сервер)</h3>
+          <h3 className="mb-2 text-lg font-semibold">Прогресс обучения</h3>
           <p className="mb-3 text-sm" style={{ color: "var(--text-muted)" }}>
-            Счётчики из <code className="rounded bg-slate-800 px-1">GET /test/cases/progress</code>. После рестарта бэкенда списки сбрасываются.
+            Счётчики из системы. После сброса данных списки обнуляются.
           </p>
           <div className="flex flex-wrap items-center gap-4 text-sm">
             <span>
@@ -31,7 +31,7 @@ function ProfileScreen({ stats, badges, currentUser, casesProgress, onResetTestP
                 onClick={onResetTestProgress}
                 className="rounded-lg border border-rose-400/40 px-3 py-1.5 text-xs text-rose-200 hover:bg-rose-500/10"
               >
-                Сбросить solved-progress
+                Сбросить прогресс решения
               </button>
             )}
           </div>
@@ -46,7 +46,7 @@ function ProfileScreen({ stats, badges, currentUser, casesProgress, onResetTestP
           </h3>
           <div className="grid grid-cols-2 gap-3 text-sm">
             <StatCard
-              label="Решено кейсов (синхрон с /test)"
+              label="Решено кейсов (из системы)"
               value={casesProgress?.solved_count ?? stats.casesSolved}
             />
             <StatCard label="Подготовлено защит идей" value={stats.pitchesMade} />
