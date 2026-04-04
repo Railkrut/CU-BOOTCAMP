@@ -158,9 +158,14 @@ function App() {
           } else {
             setFeedbackVisible(false);
           }
+        } else {
+          setActiveCase(null);
+          setCaseMessages([]);
+          setLastEvaluation(null);
+          setFeedbackVisible(false);
         }
       } catch {
-        setApiError("Не удалось подключиться к /test API. Работаем в локальном режиме.");
+        setApiError("Не удалось подключиться к /test3 API. Работаем в локальном режиме.");
       }
     };
 
@@ -210,7 +215,9 @@ function App() {
       setCaseAnswer("");
       setFollowupInput("");
     } catch (error) {
-      if (error instanceof ApiError && error.status === 404) {
+      if (error instanceof ApiError && error.status === 422) {
+        setApiError("Session token is missing. Refresh the page to create a new client_id.");
+      } else if (error instanceof ApiError && error.status === 404) {
         setApiError("Кейс не найден. Обновите список и попробуйте снова.");
       } else if (error instanceof ApiError && error.status === 503) {
         setApiError("Бэкенд в режиме misconfigured. Проверьте настройки Yandex/MOCK.");
@@ -239,12 +246,16 @@ function App() {
       await refreshProgress();
     } catch (error) {
       setIsEvaluating(false);
-      if (error instanceof ApiError && error.status === 400) {
-        setApiError("Сначала активируйте кейс через 'Начать'.");
+      if (error instanceof ApiError && error.status === 422) {
+        setApiError("Session token is missing. Refresh the page to create a new client_id.");
+      } else if (error instanceof ApiError && error.status === 400) {
+        setApiError("Start a case before submitting a solution.");
       } else if (error instanceof ApiError && error.status === 502) {
-        setApiError("Провайдер LLM временно недоступен (502). Попробуйте повторить.");
+        setApiError("LLM provider is temporarily unavailable (502). Try again.");
+      } else if (error instanceof ApiError && error.status === 503) {
+        setApiError("/test3 backend is not ready to process requests. Check provider configuration.");
       } else {
-        setApiError("Не удалось отправить решение.");
+        setApiError("Failed to submit the solution.");
       }
     }
   };
@@ -253,11 +264,14 @@ function App() {
     if (!followupInput.trim()) return;
     setIsFollowupLoading(true);
     setApiError("");
+
     try {
       const response = await testApi.followupCase(followupInput.trim());
+
       if (response.case) {
         setActiveCase(mapCase(response.case));
       }
+
       setCaseMessages(response.messages ?? []);
       const followupFeedback = {
         strengths: response.advice ?? liveCaseFeedback.strengths,
@@ -267,24 +281,27 @@ function App() {
       setLiveCaseFeedback(followupFeedback);
       setFollowupInput("");
     } catch (error) {
-      if (error instanceof ApiError && error.status === 400) {
-        setApiError("Follow-up доступен после submit решения.");
+      if (error instanceof ApiError && error.status === 422) {
+        setApiError("Session token is missing. Refresh the page to create a new client_id.");
+      } else if (error instanceof ApiError && error.status === 400) {
+        setApiError("Follow-up is available only after submitting a solution.");
+      } else if (error instanceof ApiError && error.status === 502) {
+        setApiError("LLM provider is temporarily unavailable (502). Try the follow-up again later.");
+      } else if (error instanceof ApiError && error.status === 503) {
+        setApiError("/test3 backend is not ready to process follow-up requests.");
       } else {
-        setApiError("Не удалось отправить follow-up вопрос.");
+        setApiError("Failed to send the follow-up question.");
       }
     } finally {
       setIsFollowupLoading(false);
     }
   };
 
+
   const acknowledgeCase = () => {
     if (!activeCase) return;
     setShowCompletionPulse(true);
     setRecentActivity((prev) => [`Завершено: ${activeCase.title}`, ...prev.slice(0, 3)]);
-    setProfileStats((prev) => ({
-      ...prev,
-      casesSolved: prev.casesSolved + 1,
-    }));
     setBadges((prev) =>
       prev.map((badge) =>
         badge.id === "consistency-master" ? { ...badge, unlocked: true } : badge,
@@ -441,3 +458,4 @@ function App() {
 }
 
 export default App;
+

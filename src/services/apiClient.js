@@ -1,4 +1,7 @@
-const API_BASE = "https://testa1000-7-back-cu.hf.space" || "http://localhost:8000";
+const API_BASE =
+  import.meta.env.VITE_API_BASE_URL?.trim() ||
+  "https://testa1000-7-back-cu.hf.space";
+const CLIENT_ID_STORAGE_KEY = "cu_business_trainer_client_id";
 
 export class ApiError extends Error {
   constructor(status, message) {
@@ -26,13 +29,35 @@ export async function api(path, init = {}) {
 }
 
 export function getStableClientId() {
-  const storageKey = "client_id";
-  const existing = localStorage.getItem(storageKey);
+  if (typeof window === "undefined") {
+    return "";
+  }
+
+  const existing = window.sessionStorage.getItem(CLIENT_ID_STORAGE_KEY);
   if (existing) return existing;
 
   const created = crypto.randomUUID();
-  localStorage.setItem(storageKey, created);
+  window.sessionStorage.setItem(CLIENT_ID_STORAGE_KEY, created);
   return created;
+}
+
+export function withQuery(path, params) {
+  const searchParams = new URLSearchParams();
+
+  Object.entries(params ?? {}).forEach(([key, value]) => {
+    if (value === undefined || value === null || value === "") {
+      return;
+    }
+
+    searchParams.set(key, String(value));
+  });
+
+  const query = searchParams.toString();
+  if (!query) {
+    return path;
+  }
+
+  return `${path}?${query}`;
 }
 
 export function isApiConfigured() {

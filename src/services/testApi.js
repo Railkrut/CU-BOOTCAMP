@@ -1,39 +1,46 @@
-import { api } from "./apiClient";
+import { api, getStableClientId, withQuery } from "./apiClient";
+
+const getClientId = () => getStableClientId();
 
 export const testApi = {
-  health: () => api("/test/health"),
-  getCases: () => api("/test/cases"),
-  getCaseById: (caseId) => api(`/test/cases/${caseId}`),
-  /** GET /test/cases/progress — solved / unsolved списки и счётчики */
-  getCasesProgress: () => api("/test/cases/progress"),
+  health: () => api("/test3/health"),
+  getCases: () => api("/test3/cases"),
+  getCaseById: (caseId) => api(`/test3/cases/${caseId}`),
+  getCasesProgress: () =>
+    api(withQuery("/test3/cases/progress", { client_id: getClientId() })),
   markCaseSolved: (caseId) =>
-    api("/test/cases/progress/mark-solved", {
+    api("/test3/cases/progress/mark-solved", {
       method: "POST",
-      body: JSON.stringify({ case_id: caseId }),
+      body: JSON.stringify({ client_id: getClientId(), case_id: caseId }),
     }),
   unmarkCaseSolved: (caseId) =>
-    api("/test/cases/progress/unmark-solved", {
+    api("/test3/cases/progress/unmark-solved", {
       method: "POST",
-      body: JSON.stringify({ case_id: caseId }),
+      body: JSON.stringify({ client_id: getClientId(), case_id: caseId }),
     }),
   resetCasesProgress: () =>
-    api("/test/cases/progress/reset", {
+    api("/test3/cases/progress/reset", {
       method: "POST",
+      body: JSON.stringify({ client_id: getClientId() }),
     }),
   startCase: (caseId) =>
-    api("/test/case/start", {
+    api("/test3/case/start", {
       method: "POST",
-      body: JSON.stringify({ case_id: caseId }),
+      body: JSON.stringify({ client_id: getClientId(), case_id: caseId }),
     }),
   submitCase: (solutionText) =>
-    api("/test/case/submit", {
+    api("/test3/case/submit", {
       method: "POST",
-      body: JSON.stringify({ solution_text: solutionText }),
+      body: JSON.stringify({
+        client_id: getClientId(),
+        solution_text: solutionText,
+      }),
     }),
   followupCase: (message) =>
-    api("/test/case/followup", {
+    api("/test3/case/followup", {
       method: "POST",
-      body: JSON.stringify({ message }),
+      body: JSON.stringify({ client_id: getClientId(), message }),
     }),
-  getCaseState: () => api("/test/case/state"),
+  getCaseState: () =>
+    api(withQuery("/test3/case/state", { client_id: getClientId() })),
 };
