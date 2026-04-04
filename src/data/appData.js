@@ -2,7 +2,6 @@ import { BriefcaseBusiness, Home, Rocket, UserCircle2 } from "lucide-react";
 
 export const navItems = [
   { id: "dashboard", label: "Главная", icon: Home },
-  { id: "pitching", label: "Анализ идеи", icon: Rocket },
   { id: "cases", label: "Кейс-лаборатория", icon: BriefcaseBusiness },
   { id: "profile", label: "Прогресс", icon: UserCircle2 },
 ];

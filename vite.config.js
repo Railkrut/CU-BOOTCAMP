@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3020,
     open: true,
     cors: true,
-    strictPort: false,
+    strictPort: true,
   },
-  base: "/",
+  base: './',
 });

@@ -391,21 +391,6 @@ function App() {
             />
           )}
 
-          {activeScreen === "pitching" && (
-            <PitchingScreen
-              chatStarted={chatStarted}
-              pitchInput={pitchInput}
-              setPitchInput={setPitchInput}
-              startPitch={startPitch}
-              sendPitchResponse={sendPitchResponse}
-              chatMessages={chatMessages}
-              isAiTyping={isAiTyping}
-              ideaSummary={ideaSummary}
-              identifiedRisks={identifiedRisks}
-              mitigations={mitigations}
-            />
-          )}
-
           {activeScreen === "cases" && (
             <CasesScreen
               caseCatalog={liveCases}

@@ -36,19 +36,7 @@ function DashboardScreen({
         ))}
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2">
-        <button
-          onClick={onGoPitch}
-          className="premium-card p-5 text-left transition hover:-translate-y-0.5"
-        >
-          <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-lg text-white" style={{ background: "linear-gradient(135deg, var(--brand-500), var(--brand-600))" }}>
-            <Rocket className="h-5 w-5" />
-          </div>
-          <h3 className="text-lg font-semibold">Проанализировать идею стартапа</h3>
-          <p className="mt-1 text-sm" style={{ color: "var(--text-muted)" }}>
-            Получите обратную связь по MVP, рискам и первым шагам запуска без лишней теории.
-          </p>
-        </button>
+      <div className="grid gap-4">
         <button
           onClick={onGoCases}
           className="premium-card p-5 text-left transition hover:-translate-y-0.5"
